@@ -4,7 +4,6 @@ import org.craftedsw.tripservicekata.exception.UserNotLoggedInException;
 import org.craftedsw.tripservicekata.user.User;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.AnnotatedArrayType;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
