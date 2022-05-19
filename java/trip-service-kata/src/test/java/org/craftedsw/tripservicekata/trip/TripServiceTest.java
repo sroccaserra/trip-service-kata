@@ -19,18 +19,24 @@ public class TripServiceTest {
 
     @Test
     public void should_fail_if_user_is_not_logged_in() {
+        // Given
+        TripService tripService = new TestableTripService();
+        loggedInUser = GUEST;
+        // Then
         assertThatExceptionOfType(UserNotLoggedInException.class).isThrownBy(() -> {
-            TripService tripService = new TestableTripService();
-            loggedInUser = GUEST;
+            // When
             tripService.getTripsByUser(ANY_USER);
         });
     }
 
     @Test
     public void should_return_no_trip_if_user_has_no_friends() {
+        // Given
         TripService tripService = new TestableTripService();
         loggedInUser = new User();
+        // When
         List<Trip> tripList = tripService.getTripsByUser(USER_WITH_NO_FRIENDS);
+        // Then
         assertThat(tripList).isEmpty();
     }
 
